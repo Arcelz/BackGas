@@ -29,7 +29,7 @@ exports.create = function (req, res) {
 
 
 exports.read = function (req, res) {
-  Posto.findById(req.params.taskId, function (err, posto) {
+  Posto.findById(req.params.postoId, function (err, posto) {
     if (err)
       res.send(err);
     res.json(posto);

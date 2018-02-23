@@ -14,7 +14,7 @@ exports.post = function (req) {
 
     /*    console.log(validator.isLength(req.nome, {
             min: 6,
-            max: 30
+            max: 30     // essas serão verificações que serão adicionadas dentros dos if's acima
         }))
         console.log(req.cordenadas)
         validator.isLatLong(req.cordenadas)*/
