@@ -1,5 +1,5 @@
 'use strict';
-
+// Responsavel pelas regras de negocio
 var validator = require('validator');
 var undefinedVerify = require('../util/undefinedVerify')
 exports.post = function (req) {

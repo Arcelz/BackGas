@@ -1,8 +1,10 @@
 'use strict';
+
 var mongoose = require('mongoose'),
     Posto = mongoose.model('Postos'),
     validator = require('validator'),
-    undefinedVerify = require('../util/undefinedVerify');
+    undefinedVerify = require('../util/undefinedVerify'),
+    code, msg;
 
 exports.calcularCoord = function (req) {
     if (validator.isNumeric(req.altura)) {
@@ -10,23 +12,18 @@ exports.calcularCoord = function (req) {
                 min: 13,
                 max: 16
             })) {
-            if (validator.isLatLong(req.coordenadas)) {
-                Posto.find({}, function (err, task) {
-                    if (err)
-                        return {
-                            code: 400,
-                            msg: err
-                        }
-                    return {
-                        code: 200,
-                        msg: task
-                    }
-                });
-            }
+            Posto.find({}, function (err, task) {
+                if (err) {
+                    code = 400;
+                    msg = err;
+                }
+                code = 200;
+                msg = task;
+            })
             return {
-                code: 400,
-                msg: "A Coordenada está em um formato incorreto"
-            };
+                code: code,
+                msg: msg
+            }
         }
         return {
             code: 400,

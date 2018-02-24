@@ -2,7 +2,7 @@
 module.exports = function (app) {
   var posto = require('../controllers/postoController');
 
-  // todoList Routes
+  // Responsavel pelas rotas
   app.route('/postos')
     .get(posto.list_all)
     .post(posto.create);

@@ -12,7 +12,7 @@ var PostoSchema = new Schema({
     type:Number,
     required:'Digite o cnpj',
   },
-  cordenadas:{
+  coordenadas:{
     type:String,
     required:'Marque as cordenadas',
   },
