@@ -6,7 +6,8 @@ exports.post = function (req) {
     var verifyToReturn = undefinedVerify.verify({
         'Nome': req.nome,
         'Cnpj': req.cnpj,
-        'Coordenadas':req.coordenadas
+        'Latitude':req.latitude,
+        'Longitude':req.longitude
     });
     if (verifyToReturn !== true){
         return verifyToReturn;

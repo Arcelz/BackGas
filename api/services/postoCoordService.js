@@ -12,7 +12,16 @@ exports.calcularCoord = function (req) {
                 min: 13,
                 max: 16
             })) {
-            Posto.find({}, function (err, task) {
+            var calculaLat = req.latitude.split(".");
+            var latCalculada = Array.from(calculaLat[1]);
+            latCalculada[0] = parseInt(latCalculada[0]) + 1;
+            calculaLat = calculaLat[0] + "." + latCalculada.join(['']);
+            console.log(req.latitude +"     "+calculaLat)
+            Posto.find({
+                "latitude": {
+                    $lt: calculaLat
+                }
+            }, function (err, task) {
                 if (err) {
                     code = 400;
                     msg = err;

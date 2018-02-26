@@ -12,7 +12,11 @@ var PostoSchema = new Schema({
     type:Number,
     required:'Digite o cnpj',
   },
-  coordenadas:{
+  latitude:{
+    type:String,
+    required:'Marque as cordenadas',
+  },
+  longitude:{
     type:String,
     required:'Marque as cordenadas',
   },
